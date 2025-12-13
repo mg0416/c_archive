@@ -1,0 +1,28 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main()
+{
+int arr[16];
+int start;
+int ratio;
+int j;
+
+
+
+scanf("%d",&start);
+    scanf("%d",&ratio);
+      arr[1]=start;
+
+            for(j=2;j<=15;j++){
+            arr[j]=arr[j-1]*ratio;
+            }
+            for(j=1;j<=15;j++){
+
+                printf("%d\n",arr[j]);
+            }
+
+
+
+    return 0;
+}
