@@ -2,30 +2,37 @@
 #include <stdlib.h>
 
 
-int function(int x){
-       int r;
-       if(r=1){
-            break;
-       }
-       if(x%2==1){
-        r= 3* return  function(x)+1;}
-          else if(x%2==0){
-            r=return  function(x)/2;
-                  }
-        printg("%d ", r );
-            }
+void function(int x){
 
+    
+	printf("%d\n",x);   
 
-
+    if(x==1){
+        return;
+    }
+	if(x%2==1){ 
+        
+         function(x*3+1);
+	}
+        
+    if(x%2==0){
+    	 
+         function(x/2);
+    }
 
 
 }
+
+       
+
+
+
 
 int main()
 {
     int j;
    scanf("%d",&  j);
    function(j);
-
-    return 0;
 }
+
+
