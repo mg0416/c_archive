@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stack>
 #include <string>
+#include <sstream>
 using namespace std;
 
 int main(){
@@ -12,8 +13,10 @@ int main(){
     stack<char> s;
     string str;
     getline(cin, str);
-    for(int b=0; b<str.size(); b++){
-      s.push(str[b]);
+    while( sstream >> s){
+      for(int a=0; a< str.size(); a++){
+        s.push(str[a]);
+      }
     }
     while(!s.empty()){
       cout<< s.top();
