@@ -15,24 +15,29 @@ int main() {
        if (str[i] == '(' || str[i] == '[') {
           s.push(str[i]);
             }
-         else if (str[i] == ')') {
-                if (s.empty() || s.top() != '(') {
-                    break;
-                }
-                s.pop();
+      else if (str[i] == ')') {
+         if (!s.empty() && s.top() == '(') {
+            s.pop();
+
+        }else{
+          s.push(str[i]);
+        }
             }
-            else if (str[i] == ']') {
-                if (s.empty() || s.top() != '[') {
-                  break;
+      else if (str[i] == ']') {
+                if (!s.empty() && s.top() == '[') {
+                  s.pop();
+                }else{
+                  s.push(str[i]);
                 }
-                s.pop();
             }
         }
 
         if (s.empty()){
-        cout << "yes"<< "\n";
+          cout << "yes"<< "\n";
+          
         } else{ cout << "no" <<"\n";
-       }
+          
+        }
         getline(cin, str);
     }
 
@@ -55,7 +60,8 @@ int main() {
   
   
   
-}
+
+  
 
   
   
