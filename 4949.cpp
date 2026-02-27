@@ -2,44 +2,50 @@
 #include <stack>
 #include <string>
 
-
 using namespace std;
 
+int main() {
 
+ string str;
+ getline(cin, str);
 
-int main(){
-  
-  string <char> str;
-  getline(cin,str);
-   stack <string> s;
-    stack <string> st;
-  
-  
-  for(int a=0; a<str.size(); a++){
-   
-    if(str[a]=='('){
-      s.push(str[a]);
-    }
-    if(str[a]=='['){
-      st.push(str[a]);
-    }
-    if(str[a]==')' || s.top()==str[a]){
-      s.pop();
-    }
-    if(str[a]==']' || st.top()==str[a]){
-      st.pop();
-    }
-    if(str[a]=='\n'){
-      if(s.empty()){
-        cout>> "Yes";
-      }else(!s.empty()){
-        cout>> "No";
-        while(!s.empty()){
-          s.pop();
+  while (str != ".") {
+     stack<char> s;
+    for (int i = 0; i < str.size(); i++) {
+       if (str[i] == '(' || str[i] == '[') {
+          s.push(str[i]);
+            }
+         else if (str[i] == ')') {
+                if (s.empty() || s.top() != '(') {
+                    break;
+                }
+                s.pop();
+            }
+            else if (str[i] == ']') {
+                if (s.empty() || s.top() != '[') {
+                  break;
+                }
+                s.pop();
+            }
         }
-      }
+
+        if (s.empty()){
+        cout << "yes"<< "\n";
+        } else{ cout << "no" <<"\n";
+       }
+        getline(cin, str);
     }
-  }
+
+    return 0;
+}
+  
+  
+  
+  
+  
+  
+  
+  
   
   
   
