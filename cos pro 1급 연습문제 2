@@ -1,0 +1,49 @@
+#include <iostream>
+#include <vector>
+#include <limits.h>
+using namespace std;
+ 
+int solution(vector<int>& coins, int amount) {
+	vector<int> dp(amount+1, INT_MAX);
+	dp[0] = 0;
+
+
+	for (int coin : coins) {
+	for (int i = coin; i <= amount; i++) {
+		if (dp[i - coin] != INT_MAX) {
+			dp[i] = min(dp[i], dp[i-coin]+1);
+		}
+	}
+}
+
+
+return dp[amount] != INT_MAX ? dp[amount] : -1;
+}
+ 
+int main() {
+	vector<int> coins0 = {10, 50, 100, 500};
+	int amount0 = 180;
+
+
+int result0 = solution(coins0, amount0);
+cout << result0 << endl;
+
+
+	vector<int> coins1 = {1, 5, 10, 25, 50, 100, 500};
+	int amount1 = 364;
+
+
+int result1 = solution(coins1, amount1);
+cout << result1 << endl;
+
+
+	vector<int> coins2 = {1, 5, 10, 25, 50, 100, 500};
+	int amount2 = 375;
+
+
+int result2 = solution(coins2, amount2);
+cout << result2 << endl;
+
+
+return 0;
+}
