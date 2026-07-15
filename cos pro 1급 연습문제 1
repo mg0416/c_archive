@@ -1,0 +1,34 @@
+#include <iostream>
+#include <algorithm>
+
+
+using namespace std;
+ 
+std::string solution(const std::string& input) {
+	std::string characters;
+
+
+	for (char c : input) {
+        if (std::isalpha(c)) {
+            characters.push_back(std::tolower(c));
+        }
+    }
+
+
+    std::sort(characters.begin(), characters.end());
+
+
+    if (characters.empty()) {
+        return "unknown";
+    }
+    return characters;
+}
+ 
+int main() {
+	cout << solution("Arth^urJo+ker") << endl;
+	cout << solution("Sup_rManSpid#er") << endl;
+	cout << solution("777-K1NGD0M") << endl;
+	cout << solution("Hello12345World") << endl;
+	cout << solution("AB@CDE") << endl;
+	cout << solution("1_2_3") << endl;
+}
