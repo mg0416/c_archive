@@ -1,0 +1,45 @@
+#include <iostream>
+#include <cmath>
+
+
+using namespace std;
+ 
+std::string solution(int x1, int y1, int x2, int y2) {
+   int cnt1;
+   int cnt2;
+   cnt1= x1-x2 ;
+   cnt2 = y1-y2;
+   if(cnt1 <0) cnt1 = -cnt1;
+   if(cnt2 <0) cnt2= -cnt2;
+   
+   if(cnt1 *cnt1 + cnt2 * cnt2 >=2500){
+    return "Failure";
+   }else{
+    return "Success";
+   }
+   
+}
+ 
+int main() {
+	int x1 = 3;
+	int y1 = 10;
+	int x2 = 15;
+	int y2 = 36;
+
+
+	std::string result = solution(x1, y1, x2, y2);
+	std::cout << result << std::endl;
+
+
+	int x3 = 3;
+	int y3 = 10;
+	int x4 = 70;
+	int y4 = -80;
+
+
+	std::string result1 = solution(x3, y3, x4, y4);
+	std::cout << result1 << std::endl;
+
+
+	return 0;
+}
